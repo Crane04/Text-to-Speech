@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <style>
+        .container{
+    height:100vh;
+    width:100%;
+    background:#ddd;
+    display:flex;
+    flex-direction:column;
+}
+body{
+    margin:0;
+    padding:0;
+}
+textarea{
+width: 90%;
+display:block;
+height: 98%;
+margin: auto;
+}
+button{
+    margin:15px;
+    height: 35px;
+    width:fit-content;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <center>
+            <button onclick="talk()">Read my Text</button>
+    </center>
+        <textarea placeholder="Enter Text..."></textarea>
+    </div>
+    
+    <script>
+        const textarea = document.querySelector("textarea")
+
+        
+                
+function talk() {
+let speech = new SpeechSynthesisUtterance()
+                let msg = textarea.value;
+        
+                speech.lang = "en-US";
+                
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+                
+                window.speechSynthesis.speak(speech);
+            }
+
+    </script>
+</body>
+</html>
